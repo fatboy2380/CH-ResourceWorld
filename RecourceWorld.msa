@@ -1,28 +1,28 @@
 *:/resourceworld [$] = >>>
- if(!has_permission(player(), 'resourceworld.use') )
-  {die(colorize('&8[&6TCH&7Reources&8] &cYou do not have permission to use this'))}
- @worlds = get_worlds()
- runas('~console', '/wb fill cancel')
- if(array_contains(@worlds, 'resourceworld'))
-  {
-   msg(colorize('&8[&6TCH&7Reources&8] &aThe old world is being cleaned up'))
-   unload_world('resourceworld')
-   runas('~console', '/mvdelete resourceworld')
-   runas('~console', '/mvconfirm')
+ if(!has_permission(player(), 'resourceworld.use') ){
+ 	die(colorize('&8[&6TCH&7Reources&8] &cYou do not have permission to use this'))
+ }
+ @worlds = get_worlds();
+ runas('~console', '/wb fill cancel');
+ if(array_contains(@worlds, 'resourceworld')){
+ 	msg(colorize('&8[&6TCH&7Reources&8] &aThe old world is being cleaned up'));
+   	unload_world('resourceworld');
+  	runas('~console', '/mvdelete resourceworld');
+   	runas('~console', '/mvconfirm');
   }
- create_world('resourceworld')
- runas('~console', '/wb resourceworld setcorners 1000 1000 -1000 -1000')
- runas('~console', '/mvimport resourceworld normal')
- runas('~console', '/wb resourceworld fill')
- runas('~console', '/wb fill confirm')
- runas('~console', '/wb wrap resourceworld on')
- runas('~console', '/mvm set pvp false resourceworld')
- msg(colorize('&8[&6TCH&7Resources&8] &aThe world resourceworld has been created'))
- load_chunk(resourceworld, 0,0)
- load_chunk(resourceworld, 0,-1)
- load_chunk(resourceworld, -1,0)
- load_chunk(resourceworld, -1,-1)
- skcb_load('resourceworldspawn')
- skcb_paste(array(x: 0, y: 4, z:0, world:'resourceworld'), false, true)
+ create_world('resourceworld');
+ runas('~console', '/wb resourceworld setcorners 1000 1000 -1000 -1000');
+ runas('~console', '/mvimport resourceworld normal');
+ runas('~console', '/wb resourceworld fill');
+ runas('~console', '/wb fill confirm');
+ runas('~console', '/wb wrap resourceworld on');
+ runas('~console', '/mvm set pvp false resourceworld');
+ msg(colorize('&8[&6TCH&7Resources&8] &aThe world resourceworld has been created'));
+ load_chunk('resourceworld', 0,0);
+ load_chunk('resourceworld', 0,-1);
+ load_chunk('resourceworld', -1,0);
+ load_chunk('resourceworld', -1,-1);
+ skcb_load('resourceworldspawn');
+ skcb_paste(array(x: 0, y: 4, z:0, world:'resourceworld'), false, true);
  
 <<<
